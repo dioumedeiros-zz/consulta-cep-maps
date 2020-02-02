@@ -91,7 +91,6 @@ function App() {
             </div>
             <Map>
               <ReactMapGL
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...viewport}
                 width="100%"
                 height="75vh"
