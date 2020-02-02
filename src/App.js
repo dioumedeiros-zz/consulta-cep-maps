@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { MdRoom } from "react-icons/md";
-import ReactMapGL, { Marker } from "react-map-gl";
-import { Form, Input } from "@rocketseat/unform";
-import api from "./services/api";
-import Geocode from "react-geocode";
+import React, { useState, useEffect } from 'react';
+import { MdRoom } from 'react-icons/md';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import { Form, Input } from '@rocketseat/unform';
+import Geocode from 'react-geocode';
+import api from './services/api';
 
-import GlobalStyles from "./styles/global";
-import { All, Container, Content, Map } from "./styles";
+import GlobalStyles from './styles/global';
+import { All, Container, Content, Map } from './styles';
 
 function App() {
-  const [cep, setCep] = useState("");
+  const [cep, setCep] = useState('');
   const [address, setAddress] = useState({});
   const [viewport, setViewport] = useState({
     latitude: 0,
     longitude: 0,
-    zoom: 15
+    zoom: 15,
   });
 
   useEffect(() => {
@@ -23,46 +23,46 @@ function App() {
         const { latitude, longitude } = position.coords;
         setViewport({
           ...viewport,
-          latitude: latitude,
-          longitude: longitude
+          latitude,
+          longitude,
         });
       },
       err => {
         console.log(err);
       },
       {
-        timeout: 300000
+        timeout: 300000,
       }
     );
   }, [viewport]);
 
-  async function handleAddress() {
-    const response = await api.get(`/${cep}/json`);
-
-    setAddress(response.data);
-    getGeocoding(response.data);
-    setCep("");
-  }
-
-  function getGeocoding(address) {
+  function getGeocoding(value) {
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-    Geocode.setLanguage("pt-br");
-    Geocode.setRegion("br");
+    Geocode.setLanguage('pt-br');
+    Geocode.setRegion('br');
 
-    const geoAdress = `${address.logradouro}, ${address.localidade}, ${address.uf}`;
+    const geoAdress = `${value.logradouro}, ${value.localidade}, ${value.uf}`;
     Geocode.fromAddress(geoAdress).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
         setViewport({
           ...viewport,
           latitude: lat,
-          longitude: lng
+          longitude: lng,
         });
       },
       error => {
         console.error(error);
       }
     );
+  }
+
+  async function handleAddress() {
+    const response = await api.get(`/${cep}/json`);
+
+    setAddress(response.data);
+    getGeocoding(response.data);
+    setCep('');
   }
 
   return (
@@ -79,7 +79,7 @@ function App() {
                 onChange={e => setCep(e.target.value)}
               />
 
-              <button>Pesquisar</button>
+              <button type="submit">Pesquisar</button>
             </Form>
             <div className="info">
               <strong>{address.logradouro}</strong>
@@ -91,6 +91,7 @@ function App() {
             </div>
             <Map>
               <ReactMapGL
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...viewport}
                 width="100%"
                 height="75vh"
