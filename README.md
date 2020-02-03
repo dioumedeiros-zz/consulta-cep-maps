@@ -1,5 +1,5 @@
 <h1 align="center">Consulta CEP</h1>
-<p align="center">Projeto <strong>consultaCEP</strong> desenvolvido para consulta de CEP com retorno de dados do CEP e localização no mapa <a href="https://ceplabs.netlify.com/">Ceplabs</a> 🚀</p>
+<p align="center">Projeto <strong>consultaCEP</strong> desenvolvido para consulta de CEP com retorno de dados e localização no mapa <a href="https://ceplabs.netlify.com/" target="_blank">Ceplabs</a> 🚀</p>
 <p align="center">
   <a aria-label="Netlify Status" href="https://ceplabs.netlify.com/">
     <img src="https://api.netlify.com/api/v1/badges/6aae730f-92e6-4841-8503-c879d0e28d03/deploy-status"></img>
