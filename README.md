@@ -2,10 +2,10 @@
 <p align="center">Projeto <strong>consultaCEP</strong> desenvolvido para consulta de CEP com retorno de dados e localização no mapa <a href="https://ceplabs.netlify.com/" target="_blank">Ceplabs</a> 🚀</p>
 <p align="center">
   <a aria-label="Netlify Status" href="https://ceplabs.netlify.com/">
-    <img src="https://api.netlify.com/api/v1/badges/6aae730f-92e6-4841-8503-c879d0e28d03/deploy-status"></img>
+    <img src="https://api.netlify.com/api/v1/badges/6aae730f-92e6-4841-8503-c879d0e28d03/deploy-status" />
   </a>
   <a aria-label="Versão do React" href="https://github.com/facebook/react/blob/master/CHANGELOG.md#16120-november-14-2019">
-    <img src="https://img.shields.io/badge/react-16.12.0-informational?logo=react"></img>
+    <img src="https://img.shields.io/badge/react-16.12.0-informational?logo=react" />
   </a>
 </p>
 
