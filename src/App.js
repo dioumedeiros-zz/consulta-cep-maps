@@ -41,7 +41,7 @@ function App() {
     Geocode.setLanguage('pt-br');
     Geocode.setRegion('br');
 
-    const geoAdress = `${value.logradouro}, ${value.localidade}, ${value.uf}`;
+    const geoAdress = `${value.logradouro}, ${value.bairro}, ${value.localidade}, ${value.uf}`;
     Geocode.fromAddress(geoAdress).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
