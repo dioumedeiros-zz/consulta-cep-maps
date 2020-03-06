@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MdRoom } from 'react-icons/md';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import { Form, Input } from '@rocketseat/unform';
 import Geocode from 'react-geocode';
+
+import MapGL from './components/MapGL';
+import FormMap from './components/FormMap';
+import InfoMap from './components/InfoMap';
 import api from './services/api';
 
 import GlobalStyles from './styles/global';
@@ -28,7 +29,7 @@ function App() {
         });
       },
       err => {
-        console.log(err);
+        console.error(err);
       },
       {
         timeout: 300000,
@@ -71,40 +72,10 @@ function App() {
       <All>
         <Container>
           <Content>
-            <Form onSubmit={handleAddress}>
-              <Input
-                name="cep"
-                placeholder="Consulte um CEP"
-                value={cep}
-                onChange={e => setCep(e.target.value)}
-              />
-
-              <button type="submit">Pesquisar</button>
-            </Form>
-            <div className="info">
-              <strong>{address.logradouro}</strong>
-              <div>{address.bairro}</div>
-              <div>
-                {address.localidade} {address.uf}
-              </div>
-              <div>{address.cep}</div>
-            </div>
+            <FormMap cep={cep} setCep={setCep} submitForm={handleAddress} />
+            <InfoMap address={address} />
             <Map>
-              <ReactMapGL
-                {...viewport}
-                width="100%"
-                height="75vh"
-                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                mapStyle="mapbox://styles/dioumedeiros/ck62bu4ou0wzv1ilg31xlm32l"
-                onViewportChange={setViewport}
-              >
-                <Marker
-                  latitude={viewport.latitude}
-                  longitude={viewport.longitude}
-                >
-                  <MdRoom size={35} color="#F44336" />
-                </Marker>
-              </ReactMapGL>
+              <MapGL viewport={viewport} setViewport={setViewport} />
             </Map>
           </Content>
         </Container>
