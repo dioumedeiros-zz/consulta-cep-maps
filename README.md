@@ -28,5 +28,4 @@ Dionatan Medeiros
 
 - [diou.182@gmail.com](mailto:diou.182@gmail.com)
 - [twitter/DiouMedeiros](http://twitter.com/DiouMedeiros)
-- [github.com/dioumedeiros](http://github.com/dioumedeiros)
 - [linkedin.com/in/dionatanmedeiros/](http://linkedin.com/in/dionatanmedeiros)
