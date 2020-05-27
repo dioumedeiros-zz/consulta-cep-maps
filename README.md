@@ -1,7 +1,7 @@
 <h1 align="center">Consulta CEP</h1>
 <p align="center">Projeto <strong>consultaCEP</strong> desenvolvido para consulta de CEP com retorno de dados e localização no mapa Ceplabs 🚀</p>
 <p align="center">
-  <a aria-label="Netlify Status" href="https://ceplabs.netlify.com/">
+  <a aria-label="Netlify Status">
     <img src="https://api.netlify.com/api/v1/badges/6aae730f-92e6-4841-8503-c879d0e28d03/deploy-status" />
   </a>
   <a aria-label="Versão do React" href="https://github.com/facebook/react/blob/master/CHANGELOG.md#16120-november-14-2019">
